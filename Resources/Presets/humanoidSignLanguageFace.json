@@ -1,0 +1,22 @@
+{
+  "presetName": "humanoidSignLanguageFace",
+  "version": 1,
+  "coordinateSpace": "parentBoneLocalCentimeters",
+  "normalAxis": "x",
+  "patches": [
+    { "patchId": "forehead", "displayName": "Forehead", "side": "center", "location": { "x": 11.06, "y": 10.84, "z": 0.0 }, "normal": { "x": 0.12, "y": 0.99, "z": -0.05 } },
+    { "patchId": "leftTemple", "displayName": "Left Temple", "side": "left", "location": { "x": 8.0, "y": 6.5, "z": -5.8 }, "normal": { "x": 0.0, "y": 0.7, "z": -0.7 } },
+    { "patchId": "rightTemple", "displayName": "Right Temple", "side": "right", "location": { "x": 8.0, "y": 6.5, "z": 5.8 }, "normal": { "x": 0.0, "y": 0.7, "z": 0.7 } },
+    { "patchId": "leftCheek", "displayName": "Left Cheek", "side": "left", "location": { "x": 0.15, "y": 5.58, "z": -4.62 }, "normal": { "x": 0.0, "y": 0.82, "z": -0.57 } },
+    { "patchId": "rightCheek", "displayName": "Right Cheek", "side": "right", "location": { "x": 0.15, "y": 5.58, "z": 4.6 }, "normal": { "x": 0.0, "y": 0.82, "z": 0.57 } },
+    { "patchId": "leftLowerCheek", "displayName": "Left Lower Cheek", "side": "left", "location": { "x": -2.2, "y": 5.8, "z": -4.0 }, "normal": { "x": -0.15, "y": 0.8, "z": -0.58 } },
+    { "patchId": "rightLowerCheek", "displayName": "Right Lower Cheek", "side": "right", "location": { "x": -2.2, "y": 5.8, "z": 4.0 }, "normal": { "x": -0.15, "y": 0.8, "z": 0.58 } },
+    { "patchId": "leftEar", "displayName": "Left Ear", "side": "left", "location": { "x": 5.25, "y": 0.0, "z": -7.54 }, "normal": { "x": 0.0, "y": 0.0, "z": -1.0 } },
+    { "patchId": "rightEar", "displayName": "Right Ear", "side": "right", "location": { "x": 5.79, "y": 0.0, "z": 7.66 }, "normal": { "x": 0.0, "y": 0.0, "z": 1.0 } },
+    { "patchId": "nose", "displayName": "Nose", "side": "center", "location": { "x": 3.62, "y": 11.89, "z": 0.0 }, "normal": { "x": 0.0, "y": 1.0, "z": 0.0 } },
+    { "patchId": "mouth", "displayName": "Mouth", "side": "center", "location": { "x": -0.4, "y": 10.4, "z": 0.0 }, "normal": { "x": 0.0, "y": 1.0, "z": 0.0 } },
+    { "patchId": "chin", "displayName": "Chin", "side": "center", "location": { "x": -3.71, "y": 9.0, "z": 0.02 }, "normal": { "x": -0.2, "y": 0.98, "z": 0.0 } },
+    { "patchId": "leftZygoma", "displayName": "Left Zygoma", "side": "left", "location": { "x": 4.35, "y": 9.09, "z": -4.48 }, "normal": { "x": 0.0, "y": 0.9, "z": -0.44 } },
+    { "patchId": "rightZygoma", "displayName": "Right Zygoma", "side": "right", "location": { "x": 4.35, "y": 9.09, "z": 4.48 }, "normal": { "x": 0.0, "y": 0.9, "z": 0.44 } }
+  ]
+}

@@ -18,8 +18,16 @@ public class SemanticSurfacePatchesEditor : ModuleRules
         PrivateDependencyModuleNames.AddRange(
             new[]
             {
+                "AssetRegistry",
+                "DesktopPlatform",
+                "InputCore",
+                "Projects",
+                "PropertyEditor",
+                "Slate",
+                "SlateCore",
                 "UnrealEd",
                 "Json",
+                "Kismet",
                 "SemanticSurfacePatches"
             });
     }

@@ -12,7 +12,8 @@ public class SemanticSurfacePatches : ModuleRules
             {
                 "Core",
                 "CoreUObject",
-                "Engine"
+                "Engine",
+                "ProceduralMeshComponent"
             });
     }
 }
