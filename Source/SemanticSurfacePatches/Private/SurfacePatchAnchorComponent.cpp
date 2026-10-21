@@ -190,6 +190,8 @@ FSurfacePatchAnchor USurfacePatchAnchorComponent::toPatchData() const
     patch.surfacePatchEdgeNormalThreshold = surfacePatchEdgeNormalThreshold;
     patch.showSurfacePatch = showSurfacePatch;
     patch.boneLocalTransform = GetRelativeTransform();
+    patch.boneLocalSurfaceNormal = boneLocalSurfaceNormal;
+    patch.boneLocalSemanticUp = boneLocalSemanticUp;
     patch.surfacePatch = surfacePatch;
 
     if (const USkeletalMeshComponent* parentMesh =

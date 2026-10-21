@@ -77,6 +77,12 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Surface Patch")
     TArray<FSurfacePatchTriangle> surfacePatch;
 
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Surface Patch")
+    FVector boneLocalSurfaceNormal = FVector::ZeroVector;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Surface Patch")
+    FVector boneLocalSemanticUp = FVector::ZeroVector;
+
     UPROPERTY(VisibleAnywhere, Category = "Surface Patch")
     TObjectPtr<class UProceduralMeshComponent> surfacePatchPreview;
 

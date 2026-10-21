@@ -22,6 +22,11 @@
       "LoadingPhase": "Default"
     },
     {
+      "Name": "SemanticPatchProximity",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
       "Name": "SemanticSurfacePatchesEditor",
       "Type": "Editor",
       "LoadingPhase": "Default"

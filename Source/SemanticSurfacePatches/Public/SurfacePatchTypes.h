@@ -46,6 +46,12 @@ struct SEMANTICSURFACEPATCHES_API FSurfacePatchAnchor
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Surface Patch")
     FTransform boneLocalTransform = FTransform::Identity;
 
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Surface Patch")
+    FVector boneLocalSurfaceNormal = FVector::ZeroVector;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Surface Patch")
+    FVector boneLocalSemanticUp = FVector::ZeroVector;
+
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Surface Patch")
     bool enabled = true;
 

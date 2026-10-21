@@ -351,6 +351,8 @@ bool SurfacePatchBuilder::build(
         anchor->Modify();
         const int32 previousTriangleCount = anchor->surfacePatch.Num();
         anchor->surfacePatch.Reset();
+        anchor->boneLocalSurfaceNormal = FVector::ZeroVector;
+        anchor->boneLocalSemanticUp = FVector::ZeroVector;
         const FTransform& boneTransform = boneTransforms[boneIndex];
         const FTransform anchorTransform = anchor->GetRelativeTransform();
         const FVector anchorPosition = boneTransform.TransformPosition(
@@ -448,6 +450,24 @@ bool SurfacePatchBuilder::build(
                 anchor->surfacePatchRadius));
             continue;
         }
+
+        const FVector surfaceNormal = candidates[seedIndex].normal.GetSafeNormal();
+        FVector semanticUp = FVector::UpVector -
+            surfaceNormal * FVector::DotProduct(FVector::UpVector, surfaceNormal);
+        if (!semanticUp.Normalize())
+        {
+            semanticUp = FVector::ForwardVector -
+                surfaceNormal * FVector::DotProduct(
+                    FVector::ForwardVector,
+                    surfaceNormal);
+            semanticUp.Normalize();
+        }
+        anchor->boneLocalSurfaceNormal = boneTransform
+            .InverseTransformVectorNoScale(surfaceNormal)
+            .GetSafeNormal();
+        anchor->boneLocalSemanticUp = boneTransform
+            .InverseTransformVectorNoScale(semanticUp)
+            .GetSafeNormal();
 
         const FVector seedOffset = seedPoint - anchorPosition;
         const double seedNormalOffset = FVector::DotProduct(
@@ -743,8 +763,27 @@ bool SurfacePatchBuilder::rotateNormalsOutwards(
         }
 
         anchor->Modify();
+        FVector semanticUpInMeshSpace = FVector::UpVector -
+            surfaceNormal * FVector::DotProduct(
+                FVector::UpVector,
+                surfaceNormal);
+        if (!semanticUpInMeshSpace.Normalize())
+        {
+            semanticUpInMeshSpace = FVector::ForwardVector -
+                surfaceNormal * FVector::DotProduct(
+                    FVector::ForwardVector,
+                    surfaceNormal);
+            semanticUpInMeshSpace.Normalize();
+        }
+        const FVector semanticUpInBoneSpace = boneTransform
+            .InverseTransformVectorNoScale(semanticUpInMeshSpace)
+            .GetSafeNormal();
         anchor->SetRelativeRotation(
-            FRotationMatrix::MakeFromX(normalInBoneSpace).Rotator());
+            FRotationMatrix::MakeFromXZ(
+                normalInBoneSpace,
+                semanticUpInBoneSpace).Rotator());
+        anchor->boneLocalSurfaceNormal = FVector::ZeroVector;
+        anchor->boneLocalSemanticUp = FVector::ZeroVector;
         anchor->surfacePatch.Reset();
         anchor->refreshSurfacePatchPreview();
         ++rotatedCount;

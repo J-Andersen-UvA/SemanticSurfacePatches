@@ -506,6 +506,8 @@ bool replaceBlueprintPatches(
         anchor->surfacePatchEdgeNormalThreshold =
             patch.surfacePatchEdgeNormalThreshold;
         anchor->showSurfacePatch = patch.showSurfacePatch;
+        anchor->boneLocalSurfaceNormal = patch.boneLocalSurfaceNormal;
+        anchor->boneLocalSemanticUp = patch.boneLocalSemanticUp;
         anchor->surfacePatch = patch.surfacePatch;
         anchor->SetRelativeTransform(patch.boneLocalTransform);
 
@@ -1218,6 +1220,8 @@ FReply FSurfacePatchesComponentCustomization::mirrorRightToLeft()
         leftAnchor->surfacePatchEdgeNormalThreshold =
             rightAnchor->surfacePatchEdgeNormalThreshold;
         leftAnchor->showSurfacePatch = rightAnchor->showSurfacePatch;
+        leftAnchor->boneLocalSurfaceNormal = FVector::ZeroVector;
+        leftAnchor->boneLocalSemanticUp = FVector::ZeroVector;
         leftAnchor->surfacePatch.Reset();
         leftAnchor->refreshSurfacePatchPreview();
         ++mirroredCount;
@@ -1382,6 +1386,8 @@ FReply FSurfacePatchesComponentCustomization::copyFromActor()
             sourceMesh,
             destinationMesh);
         patch.parentBone = targetBone;
+        patch.boneLocalSurfaceNormal = FVector::ZeroVector;
+        patch.boneLocalSemanticUp = FVector::ZeroVector;
         patch.surfacePatch.Reset();
     }
 

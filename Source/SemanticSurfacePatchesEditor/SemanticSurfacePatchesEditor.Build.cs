@@ -10,9 +10,11 @@ public class SemanticSurfacePatchesEditor : ModuleRules
         PublicDependencyModuleNames.AddRange(
             new[]
             {
+                "AnimationBlueprintLibrary",
                 "Core",
                 "CoreUObject",
-                "Engine"
+                "Engine",
+                "SemanticPatchProximity"
             });
 
         PrivateDependencyModuleNames.AddRange(
